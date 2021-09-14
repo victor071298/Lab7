@@ -49,9 +49,9 @@ class LeEs {
 
 // Leitor
 class Read extends Thread {
-  int id; //identificador da thread
-  int delay; //atraso
-  LeEs monitor;//objeto monitor para coordenar a lógica de execução das threads
+  int id; //Identificador da thread
+  int delay; //Atraso
+  LeEs monitor; //Objeto monitor para coordenar a lógica de execução das threads
   String type = new String("Leitor"); //Identificador do tipo de thread (leitor escritor ou leitor escritor)
   // Construtor
   Read (int id, int delayTime, LeEs m) {
@@ -60,7 +60,8 @@ class Read extends Thread {
     this.monitor = m;
   }
 
-  private boolean Prime(int n){
+  // Método que determina primalidade de um inteiro n
+  private boolean Prime(int n){  
     if(n==1||n==0){return false;}
     for(int i=2;i<=n/2;i++){
       if(n%i==0){
@@ -90,12 +91,11 @@ class Read extends Thread {
   }
 }
 
-//--------------------------------------------------------
 // Escritor
 class Write extends Thread {
-  int id; //identificador da thread
-  int delay; //atraso
-  LeEs monitor; //objeto monitor para coordenar a lógica de execução das threads
+  int id; //Identificador da thread
+  int delay; //Atraso
+  LeEs monitor; //Objeto monitor para coordenar a lógica de execução das threads
   String type = new String("Escritor"); //Identificador do tipo de thread (leitor escritor ou leitor escritor)
 
   // Construtor
@@ -122,9 +122,9 @@ class Write extends Thread {
 //LeitorEscritor
 class Writeread extends Thread{
   
-  int id; //identificador da thread
-  int delay; //atraso
-  LeEs monitor; //objeto monitor para coordenar a lógica de execução das threads
+  int id; //Identificador da thread
+  int delay; //Atraso
+  LeEs monitor; //Objeto monitor para coordenar a lógica de execução das threads
   String type = new String("Leitor e Escritor"); //Identificador do tipo de thread (leitor escritor ou leitor escritor)
 
   // Construtor
@@ -134,6 +134,7 @@ class Writeread extends Thread{
     this.monitor = monitor;
   }
 
+  // Método para determinar se um inteiro n é par ou impar
   private void parImpar(int n){
     if(n%2==0){
       System.out.println("Leitor e Escritor viu que " +n+ " e Par ");
@@ -162,10 +163,10 @@ class Writeread extends Thread{
 }
 
 class Monitor {
-  public static int v = 0;
-  static final int R = 5;
-  static final int W = 5;
-  static final int WR = 2;
+  public static int v = 0; // Variável global
+  static final int R = 5; // Quantidade de leitores
+  static final int W = 5; // Quantidade de escritores
+  static final int WR = 2; // Quantidade de leitores e escritores
   public static void main(String[] args) {
     int i;
     LeEs monitor = new LeEs();            // Monitor
@@ -174,12 +175,12 @@ class Monitor {
     Writeread[] wr = new Writeread[WR]; // Threads leitoras/escritoras
     for (i=0; i<R; i++) {
       System.out.println("Leitor " +(i+1)+ " criado");
-      r[i] = new Read(i+1, (i+1)*500, monitor); // Assim as threads leitoras e leitoras/escritoras terão ids diferentes
+      r[i] = new Read(i+1, (i+1)*500, monitor); 
       r[i].start(); 
     }
    for (i=0; i<W; i++) {
       System.out.println("Escritor " +(i+1)+ " criado");
-      w[i] = new Write(i+1, (i+1)*500, monitor); // Assim as threads escritoras e leitoras/escritoras terão ids diferentes
+      w[i] = new Write(i+1, (i+1)*500, monitor); 
       w[i].start(); 
     }
    for (i=0; i<WR; i++) {
