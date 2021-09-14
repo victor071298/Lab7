@@ -47,7 +47,6 @@ class LeEs {
     }
   }
 
-//Aplicacao de exemplo--------------------------------------------------------
 // Leitor
 class Read extends Thread {
   int id; //identificador da thread
