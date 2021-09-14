@@ -50,7 +50,7 @@ class LeEs {
 // Leitor
 class Read extends Thread {
   int id; //identificador da thread
-  int delay; //atraso bobo
+  int delay; //atraso
   LeEs monitor;//objeto monitor para coordenar a lógica de execução das threads
   String type = new String("Leitor"); //Identificador do tipo de thread (leitor escritor ou leitor escritor)
   // Construtor
@@ -94,7 +94,7 @@ class Read extends Thread {
 // Escritor
 class Write extends Thread {
   int id; //identificador da thread
-  int delay; //atraso bobo...
+  int delay; //atraso
   LeEs monitor; //objeto monitor para coordenar a lógica de execução das threads
   String type = new String("Escritor"); //Identificador do tipo de thread (leitor escritor ou leitor escritor)
 
@@ -123,7 +123,7 @@ class Write extends Thread {
 class Writeread extends Thread{
   
   int id; //identificador da thread
-  int delay; //atraso bobo...
+  int delay; //atraso
   LeEs monitor; //objeto monitor para coordenar a lógica de execução das threads
   String type = new String("Leitor e Escritor"); //Identificador do tipo de thread (leitor escritor ou leitor escritor)
 
