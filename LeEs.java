@@ -52,7 +52,7 @@ class Read extends Thread {
   int id; //Identificador da thread
   int delay; //Atraso
   LeEs monitor; //Objeto monitor para coordenar a lógica de execução das threads
-  String type = new String("Leitor"); //Identificador do tipo de thread (leitor escritor ou leitor escritor)
+  String type = new String("Leitor"); //Identificador do tipo de thread (leitor, escritor ou leitor escritor)
   // Construtor
   Read (int id, int delayTime, LeEs m) {
     this.id = id;
@@ -96,7 +96,7 @@ class Write extends Thread {
   int id; //Identificador da thread
   int delay; //Atraso
   LeEs monitor; //Objeto monitor para coordenar a lógica de execução das threads
-  String type = new String("Escritor"); //Identificador do tipo de thread (leitor escritor ou leitor escritor)
+  String type = new String("Escritor"); //Identificador do tipo de thread (leitor, escritor ou leitor escritor)
 
   // Construtor
   Write (int id, int delayTime, LeEs monitor) {
@@ -125,7 +125,7 @@ class Writeread extends Thread{
   int id; //Identificador da thread
   int delay; //Atraso
   LeEs monitor; //Objeto monitor para coordenar a lógica de execução das threads
-  String type = new String("Leitor e Escritor"); //Identificador do tipo de thread (leitor escritor ou leitor escritor)
+  String type = new String("Leitor e Escritor"); //Identificador do tipo de thread (leitor, escritor ou leitor escritor)
 
   // Construtor
   Writeread (int id, int delayTime, LeEs monitor) {
